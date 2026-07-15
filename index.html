@@ -7,6 +7,13 @@
   <meta name="description" content="Pixel Craft - Professional 3D Web Design Agency by Dnyaneshwar Adagale. Custom web solutions, UI/UX, and Responsive Design.">
   <meta name="keywords" content="Web Design, Dnyaneshwar Adagale, Shrigonda Web Developer, 3D Website, UI UX Designer, Marathi Web Designer">
   
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Pixel Craft - 3D Web Design Agency">
+  <meta property="og:description" content="Professional 3D Web Design Agency by Dnyaneshwar Adagale. Custom web solutions, UI/UX, and Responsive Design.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:url" content="https://dnyaneshwar86.github.io/PixelCraft/">
+  <meta property="og:type" content="website">
+
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/282/282806.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,56 +21,68 @@
   
   <style>
     :root {
-      --bg-color: #050810;
-      --card-bg: rgba(30, 41, 59, 0.4);
-      --accent-color: #00f2fe;
-      --accent-glow: rgba(0, 242, 254, 0.6);
-      --text-color: #f8fafc;
-      --text-muted: #94a3b8;
+      --bg-color: #F7F9F6;
+      --card-bg: rgba(255, 255, 255, 0.7);
+      --accent-color: #2E8B57;
+      --accent-glow: rgba(46, 139, 87, 0.4);
+      --text-color: #1F2937;
+      --text-muted: #4B5563;
       --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; cursor: none; }
 
     body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; position: relative; }
     
     /* 3D Floating Background Orbs */
     .orb { position: absolute; border-radius: 50%; filter: blur(80px); z-index: -1; animation: float 10s infinite alternate ease-in-out; }
-    .orb-1 { width: 300px; height: 300px; background: #00f2fe; top: -100px; left: -100px; opacity: 0.3; }
-    .orb-2 { width: 400px; height: 400px; background: #4facfe; bottom: 20%; right: -150px; opacity: 0.2; animation-delay: -5s; }
-    .orb-3 { width: 250px; height: 250px; background: #7952B3; top: 40%; left: 30%; opacity: 0.15; animation-duration: 15s; }
+    .orb-1 { width: 300px; height: 300px; background: #A8E6CF; top: -100px; left: -100px; opacity: 0.6; }
+    .orb-2 { width: 400px; height: 400px; background: #DCEDC1; bottom: 20%; right: -150px; opacity: 0.5; animation-delay: -5s; }
+    .orb-3 { width: 250px; height: 250px; background: #FFD3B6; top: 40%; left: 30%; opacity: 0.4; animation-duration: 15s; }
 
     @keyframes float {
       0% { transform: translate(0, 0) scale(1); }
       100% { transform: translate(50px, 50px) scale(1.1); }
     }
+    
+    /* Custom Cursor & Scroll */
+    .custom-cursor { position: fixed; width: 20px; height: 20px; border: 2px solid var(--accent-color); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s; box-shadow: 0 0 10px var(--accent-glow); }
+    .custom-cursor.hovering { width: 40px; height: 40px; background: rgba(46, 139, 87, 0.1); }
+    #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent-color); z-index: 99999; width: 0%; box-shadow: 0 0 10px var(--accent-glow); }
 
     /* Preloader */
-    #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease; }
-    .spinner { width: 60px; height: 60px; border: 5px solid rgba(0, 242, 254, 0.1); border-top-color: var(--accent-color); border-radius: 50%; animation: spin 1s linear infinite; box-shadow: 0 0 20px var(--accent-glow); }
-    @keyframes spin { 100% { transform: rotate(360deg); } }
+    #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease; cursor: wait; }
+    .pixel-loader { width: 30px; height: 30px; background: var(--accent-color); box-shadow: 30px 0 0 #7952B3, 0 30px 0 #4facfe, -30px 0 0 #E34F26, 0 -30px 0 #25D366; animation: pixel-spin 1s step-end infinite; margin-bottom: 40px; margin-right: 30px;}
+    @keyframes pixel-spin {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(90deg); }
+      50% { transform: rotate(180deg); }
+      75% { transform: rotate(270deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .loading-text { color: var(--accent-color); font-family: 'Courier New', Courier, monospace; font-size: 24px; font-weight: bold; letter-spacing: 5px; text-shadow: 0 0 10px var(--accent-glow); }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 10; }
 
     /* Glassmorphism Header */
-    header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(5, 8, 16, 0.6); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(247, 249, 246, 0.8); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
     .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
     .logo { font-size: 26px; font-weight: 900; color: var(--text-color); text-transform: uppercase; letter-spacing: 1px;}
     .logo span { color: var(--accent-color); text-shadow: 0 0 10px var(--accent-glow); }
     .nav-links { display: flex; gap: 20px; align-items: center; }
-    .nav-links a { font-weight: 500; color: var(--text-muted); transition: 0.3s; position: relative;}
+    .nav-links a { font-weight: 500; color: var(--text-muted); transition: 0.3s; position: relative; cursor: none;}
     .nav-links a:hover { color: var(--accent-color); text-shadow: 0 0 8px var(--accent-glow);}
-    .menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--text-color); }
+    .menu-toggle { display: none; font-size: 24px; cursor: none; color: var(--text-color); }
     
-    .lang-select { background: rgba(255,255,255,0.05); color: var(--accent-color); border: 1px solid var(--accent-color); padding: 5px 10px; border-radius: 5px; outline: none; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 600;}
+    .lang-select { background: rgba(255,255,255,0.05); color: var(--accent-color); border: 1px solid var(--accent-color); padding: 5px 10px; border-radius: 5px; outline: none; cursor: none; font-family: 'Poppins', sans-serif; font-weight: 600;}
     .lang-select option { background: var(--bg-color); color: #fff; }
 
     /* 3D Buttons */
-    .btn-primary, .btn-secondary { padding: 12px 30px; border-radius: 8px; font-weight: 600; transition: var(--transition); display: inline-block; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; position: relative; overflow: hidden;}
-    .btn-primary { background: linear-gradient(45deg, #00f2fe, #4facfe); color: #000; border: none; box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3); transform-style: preserve-3d;}
-    .btn-primary:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(0, 242, 254, 0.5); }
+    .btn-primary, .btn-secondary { padding: 12px 30px; border-radius: 8px; font-weight: 600; transition: var(--transition); display: inline-block; cursor: none; text-transform: uppercase; letter-spacing: 1px; position: relative; overflow: hidden;}
+    .btn-primary { background: linear-gradient(45deg, #2E8B57, #81C784); color: #fff; border: none; box-shadow: 0 10px 20px rgba(46, 139, 87, 0.3); transform-style: preserve-3d;}
+    .btn-primary:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(46, 139, 87, 0.5); }
     .btn-secondary { border: 2px solid var(--accent-color); color: var(--accent-color); background: transparent; }
-    .btn-secondary:hover { background: var(--accent-color); color: #000; transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3); }
+    .btn-secondary:hover { background: var(--accent-color); color: #fff; transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 20px rgba(46, 139, 87, 0.3); }
 
     section { padding: 120px 0; }
     .section-title { text-align: center; font-size: 40px; font-weight: 800; margin-bottom: 60px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
@@ -82,11 +101,12 @@
     .glass-card {
       background: var(--card-bg);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
       border-radius: 16px;
       padding: 40px 30px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       transform-style: preserve-3d;
+      cursor: none;
     }
     
     .pop-out { transform: translateZ(50px); transition: var(--transition); }
@@ -94,8 +114,8 @@
     /* About & Profile */
     .about-grid, .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
     .profile-card { text-align: center; }
-    .profile-avatar { width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(135deg, #00f2fe, #4facfe); margin: 0 auto 20px; display: flex; justify-content: center; align-items: center; font-size: 55px; color: #000; box-shadow: 0 15px 30px rgba(0,242,254,0.3); transform: translateZ(60px); }
-    .lang-badge { background: rgba(0, 242, 254, 0.1); color: var(--accent-color); padding: 5px 15px; border-radius: 20px; font-size: 13px; border: 1px solid var(--accent-color); box-shadow: 0 5px 10px rgba(0,0,0,0.3); transform: translateZ(30px); display: inline-block; margin: 5px; }
+    .profile-avatar { width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(135deg, #A8E6CF, #DCEDC1); margin: 0 auto 20px; display: flex; justify-content: center; align-items: center; font-size: 55px; color: #000; box-shadow: 0 15px 30px rgba(46,139,87,0.3); transform: translateZ(60px); }
+    .lang-badge { background: rgba(46, 139, 87, 0.1); color: var(--accent-color); padding: 5px 15px; border-radius: 20px; font-size: 13px; border: 1px solid var(--accent-color); box-shadow: 0 5px 10px rgba(0,0,0,0.05); transform: translateZ(30px); display: inline-block; margin: 5px; }
 
     /* Services Grid */
     .services-grid, .portfolio-grid, .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; perspective: 1000px;}
@@ -106,30 +126,45 @@
     .skill-box { width: 140px; text-align: center; padding: 25px 15px; }
     .skill-box i { font-size: 60px; margin-bottom: 15px; transform: translateZ(40px); display: inline-block; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5)); }
     .skill-box p { font-weight: 700; transform: translateZ(20px); letter-spacing: 1px;}
+    
+    /* Timeline & Testimonials */
+    .timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 40px 0; }
+    .timeline::after { content: ''; position: absolute; width: 2px; background: rgba(0, 0, 0, 0.05); top: 0; bottom: 0; left: 50%; margin-left: -1px; }
+    .timeline-item { padding: 10px 40px; position: relative; background: inherit; width: 50%; }
+    .timeline-item:nth-child(odd) { left: 0; }
+    .timeline-item:nth-child(even) { left: 50%; }
+    .timeline-item::after { content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background: var(--bg-color); border: 4px solid var(--accent-color); top: 15px; border-radius: 50%; z-index: 1; box-shadow: 0 0 10px var(--accent-glow); }
+    .timeline-item:nth-child(even)::after { left: -8px; }
+    .timeline-content { padding: 20px 30px; border-radius: 16px; }
+    .testimonial-card { text-align: center; }
+    .client-avatar { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; border: 2px solid var(--accent-color); padding: 3px; object-fit: cover;}
+    @media (max-width: 768px) { .timeline::after { left: 31px; } .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; } .timeline-item:nth-child(even) { left: 0%; } .timeline-item::after { left: 23px; } .timeline-item:nth-child(odd)::after { left: 23px; } }
 
     /* Portfolio 3D Cards */
     .portfolio-card { padding: 0; overflow: hidden; }
     .portfolio-img { height: 230px; background-size: cover; background-position: center; transform: translateZ(20px) scale(1.05); }
-    .portfolio-info { padding: 25px; transform: translateZ(40px); background: linear-gradient(to top, rgba(15,23,42,1), rgba(15,23,42,0.8)); position: relative; margin-top: -30px; border-radius: 16px; }
+    .portfolio-info { padding: 25px; transform: translateZ(40px); background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0.8)); position: relative; margin-top: -30px; border-radius: 16px; }
 
     /* Forms */
-    .form-group input, .form-group textarea { width: 100%; padding: 15px; margin-bottom: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: var(--text-color); outline: none; transition: 0.3s; transform: translateZ(20px); box-shadow: inset 0 2px 5px rgba(0,0,0,0.5); }
-    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent-color); box-shadow: 0 0 15px rgba(0,242,254,0.2), inset 0 2px 5px rgba(0,0,0,0.5); }
+    .form-group input, .form-group textarea { width: 100%; padding: 15px; margin-bottom: 20px; background: rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; color: var(--text-color); outline: none; transition: 0.3s; transform: translateZ(20px); box-shadow: inset 0 2px 5px rgba(0,0,0,0.05); cursor: none;}
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent-color); box-shadow: 0 0 15px rgba(46,139,87,0.2), inset 0 2px 5px rgba(0,0,0,0.05); }
 
     /* Footer */
-    footer { background: #03050a; padding: 60px 0 20px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+    footer { background: #E8F0E4; padding: 60px 0 20px; border-top: 1px solid rgba(0, 0, 0, 0.05); }
     .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
-    .footer-col ul li a { color: var(--text-muted); transition: 0.3s; display: inline-block;}
+    .footer-col ul li a { color: var(--text-muted); transition: 0.3s; display: inline-block; cursor: none;}
     .footer-col ul li a:hover { color: var(--accent-color); transform: translateX(10px); }
-    .social-links a { display: inline-block; width: 45px; height: 45px; background: rgba(255,255,255,0.05); border-radius: 50%; text-align: center; line-height: 45px; color: var(--accent-color); transition: var(--transition); border: 1px solid rgba(255,255,255,0.1); }
-    .social-links a:hover { background: var(--accent-color); color: #000; transform: translateY(-5px) rotate(360deg); box-shadow: 0 10px 20px var(--accent-glow); }
+    .social-links a { display: inline-block; width: 45px; height: 45px; background: rgba(0,0,0,0.05); border-radius: 50%; text-align: center; line-height: 45px; color: var(--accent-color); transition: var(--transition); border: 1px solid rgba(0,0,0,0.05); cursor: none;}
+    .social-links a:hover { background: var(--accent-color); color: #fff; transform: translateY(-5px) rotate(360deg); box-shadow: 0 10px 20px var(--accent-glow); }
     
-    .floating-whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); z-index: 1000; transition: var(--transition); animation: pulse 2s infinite; }
+    .floating-whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); z-index: 1000; transition: var(--transition); animation: pulse 2s infinite; cursor: none;}
     .floating-whatsapp:hover { transform: scale(1.15) rotate(10deg); }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
     /* Mobile Responsive */
     @media (max-width: 768px) {
+      * { cursor: auto !important; }
+      .custom-cursor { display: none !important; }
       .menu-toggle { display: block; }
       .nav-links { position: absolute; top: 80px; left: -100%; width: 100%; height: 100vh; background: rgba(5, 8, 16, 0.98); flex-direction: column; align-items: center; padding-top: 50px; transition: 0.4s; }
       .nav-links.active { left: 0; }
@@ -143,11 +178,17 @@
 </head>
 <body>
 
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div id="scroll-progress"></div>
+
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
 
-  <div id="preloader"><div class="spinner"></div></div>
+  <div id="preloader">
+    <div class="pixel-loader"></div>
+    <div class="loading-text" id="loading-perc">0%</div>
+  </div>
 
   <header>
     <div class="container nav-container">
@@ -158,6 +199,7 @@
         <li><a href="#about" data-i18n="nav_about">About</a></li>
         <li><a href="#services" data-i18n="nav_services">Services</a></li>
         <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+        <li><a href="#experience" data-i18n="nav_exp">Journey</a></li>
         <li><a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
         <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
         <li>
@@ -171,14 +213,38 @@
     </div>
   </header>
 
-  <section id="home">
-    <div class="container" data-aos="fade-up" data-aos-duration="1000">
+  <section id="home" style="position: relative; overflow: hidden;">
+    <canvas id="particles-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: 0.6;"></canvas>
+    <div class="container" data-aos="fade-up" data-aos-duration="1000" style="position: relative; z-index: 2;">
       <div class="hero-content">
         <h1><span data-i18n="hero_title_1">We Build</span> <br><span class="typing-text" id="typewriter"></span></h1>
         <p data-i18n="hero_desc">Get professional, modern, and fully 3D interactive websites designed by Dnyaneshwar Adagale to skyrocket your business growth.</p>
         <div class="btn-group">
           <a href="https://wa.me/917507093235" target="_blank" class="btn-primary"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="btn_chat">Chat Now</span></a>
           <a href="#portfolio" class="btn-secondary" data-i18n="btn_portfolio">3D Portfolio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stats" style="padding: 50px 0; background: linear-gradient(90deg, rgba(0,242,254,0.05), rgba(79,172,254,0.05)); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center;">
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h3 class="stat-number" data-target="25" style="font-size: 45px; font-weight: 900; color: var(--accent-color); text-shadow: 0 0 10px var(--accent-glow);">0</h3>
+          <p style="color: var(--text-muted); font-size: 16px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;" data-i18n="stat1">Projects</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h3 class="stat-number" data-target="15" style="font-size: 45px; font-weight: 900; color: var(--accent-color); text-shadow: 0 0 10px var(--accent-glow);">0</h3>
+          <p style="color: var(--text-muted); font-size: 16px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;" data-i18n="stat2">Happy Clients</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="300">
+          <h3 class="stat-number" data-target="2" style="font-size: 45px; font-weight: 900; color: var(--accent-color); text-shadow: 0 0 10px var(--accent-glow);">0</h3>
+          <p style="color: var(--text-muted); font-size: 16px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;" data-i18n="stat3">Years Exp</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="400">
+          <h3 class="stat-number" data-target="100" style="font-size: 45px; font-weight: 900; color: var(--accent-color); text-shadow: 0 0 10px var(--accent-glow);">0</h3>
+          <p style="color: var(--text-muted); font-size: 16px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;" data-i18n="stat4">Satisfaction %</p>
         </div>
       </div>
     </div>
@@ -196,9 +262,12 @@
             <li><i class="fa-solid fa-mobile-screen" style="color:var(--accent-color); margin-right:10px;"></i> <span data-i18n="about_li2">100% Mobile Responsive</span></li>
             <li><i class="fa-solid fa-rocket" style="color:var(--accent-color); margin-right:10px;"></i> <span data-i18n="about_li3">Ultra Fast Performance</span></li>
           </ul>
+          <a href="#" class="btn-primary" style="padding: 10px 25px; font-size: 14px; margin-top: 10px;" data-i18n="btn_resume"><i class="fa-solid fa-download"></i> Download Resume</a>
         </div>
         <div class="glass-card profile-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.5" data-aos="fade-left">
-          <div class="profile-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+          <div class="profile-avatar" style="overflow: hidden; padding: 0;">
+            <img src="https://ui-avatars.com/api/?name=Dnyaneshwar+Adagale&background=00f2fe&color=fff&size=150" alt="Profile Photo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+          </div>
           <h3 class="pop-out" style="font-size: 24px; color: #fff;">Dnyaneshwar Adagale</h3>
           <p class="pop-out" style="color: var(--accent-color); font-weight: 600; margin-bottom: 15px;" data-i18n="founder_title">Founder & 3D Web Architect</p>
           <div class="pop-out" style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
@@ -216,17 +285,15 @@
     <div class="container">
       <h2 class="section-title" data-aos="fade-down"><span data-i18n="skills_title">Tech</span> <span data-i18n="skills_subtitle">Arsenal</span></h2>
       <div class="skills-grid">
-        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="100"><i class="fa-brands fa-html5" style="color: #E34F26;"></i><p class="pop-out">HTML5</p></div>
-        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="150"><i class="fa-brands fa-css3-alt" style="color: #1572B6;"></i><p class="pop-out">CSS3 / 3D</p></div>
+        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="100"><i class="fa-brands fa-html5" style="color: #E34F26;"></i><p class="pop-out">HTML</p></div>
+        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="150"><i class="fa-brands fa-css3-alt" style="color: #1572B6;"></i><p class="pop-out">CSS</p></div>
         <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="200"><i class="fa-brands fa-js" style="color: #F7DF1E;"></i><p class="pop-out">JavaScript</p></div>
-        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="250"><i class="fa-brands fa-react" style="color: #61DAFB;"></i><p class="pop-out">React.js</p></div>
+        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="250"><i class="fa-brands fa-react" style="color: #61DAFB;"></i><p class="pop-out">React</p></div>
         <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="300"><i class="fa-brands fa-node-js" style="color: #339933;"></i><p class="pop-out">Node.js</p></div>
-        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="350"><i class="fa-brands fa-python" style="color: #3776AB;"></i><p class="pop-out">Python</p></div>
-        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="400"><i class="fa-brands fa-php" style="color: #777BB4;"></i><p class="pop-out">PHP</p></div>
-        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="450"><i class="fa-solid fa-database" style="color: #00758F;"></i><p class="pop-out">MySQL</p></div>
-        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="500"><i class="fa-brands fa-wordpress" style="color: #21759B;"></i><p class="pop-out">WordPress</p></div>
-        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="550"><i class="fa-brands fa-figma" style="color: #F24E1E;"></i><p class="pop-out">Figma</p></div>
-        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="600"><i class="fa-brands fa-github" style="color: #fff;"></i><p class="pop-out">GitHub</p></div>
+        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="350"><i class="fa-solid fa-envira" style="color: #47A248;"></i><p class="pop-out">MongoDB</p></div>
+        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="400"><i class="fa-solid fa-wind" style="color: #38B2AC;"></i><p class="pop-out">Tailwind CSS</p></div>
+        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="450"><i class="fa-brands fa-bootstrap" style="color: #7952B3;"></i><p class="pop-out">Bootstrap</p></div>
+        <div class="glass-card skill-box" data-tilt data-tilt-scale="1.1" data-aos="zoom-in" data-aos-delay="500"><i class="fa-brands fa-git-alt" style="color: #F05032;"></i><p class="pop-out">Git</p></div>
       </div>
     </div>
   </section>
@@ -235,20 +302,30 @@
     <div class="container">
       <h2 class="section-title" data-aos="fade-down"><span data-i18n="services_title">Premium</span> <span data-i18n="services_subtitle">Services</span></h2>
       <div class="services-grid">
-        <div class="glass-card" data-tilt data-tilt-max="20" data-aos="zoom-in" data-aos-delay="100">
-          <i class="fa-solid fa-laptop-code service-icon"></i>
+        <div class="glass-card" data-tilt data-tilt-max="10" data-aos="fade-up" data-aos-delay="100">
+          <i class="fa-solid fa-code service-icon"></i>
           <h3 class="pop-out" style="font-size: 22px; margin-bottom: 15px;" data-i18n="serv1_title">Custom Web Dev</h3>
           <p class="pop-out" style="color: var(--text-muted);" data-i18n="serv1_desc">High-performance static and dynamic websites built with modern code architecture.</p>
         </div>
-        <div class="glass-card" data-tilt data-tilt-max="20" data-aos="zoom-in" data-aos-delay="200">
-          <i class="fa-solid fa-cubes service-icon"></i>
+        <div class="glass-card" data-tilt data-tilt-max="10" data-aos="fade-up" data-aos-delay="200">
+          <i class="fa-solid fa-wand-magic-sparkles service-icon"></i>
           <h3 class="pop-out" style="font-size: 22px; margin-bottom: 15px;" data-i18n="serv2_title">3D UI / UX Design</h3>
           <p class="pop-out" style="color: var(--text-muted);" data-i18n="serv2_desc">Immersive 3D interfaces, glassmorphism, and smooth animations that wow users.</p>
         </div>
-        <div class="glass-card" data-tilt data-tilt-max="20" data-aos="zoom-in" data-aos-delay="300">
-          <i class="fa-solid fa-server service-icon"></i>
+        <div class="glass-card" data-tilt data-tilt-max="10" data-aos="fade-up" data-aos-delay="300">
+          <i class="fa-solid fa-rocket service-icon"></i>
           <h3 class="pop-out" style="font-size: 22px; margin-bottom: 15px;" data-i18n="serv3_title">Hosting & SEO</h3>
           <p class="pop-out" style="color: var(--text-muted);" data-i18n="serv3_desc">Secure GitHub Pages deployment, domain setup, and local SEO for search ranking.</p>
+        </div>
+        <div class="glass-card" data-tilt data-tilt-max="10" data-aos="fade-up" data-aos-delay="400">
+          <i class="fa-solid fa-mobile-screen service-icon"></i>
+          <h3 class="pop-out" style="font-size: 22px; margin-bottom: 15px;" data-i18n="serv4_title">Responsive Design</h3>
+          <p class="pop-out" style="color: var(--text-muted);" data-i18n="serv4_desc">Flawless performance and aesthetics across all devices and screen sizes.</p>
+        </div>
+        <div class="glass-card" data-tilt data-tilt-max="10" data-aos="fade-up" data-aos-delay="500">
+          <i class="fa-solid fa-screwdriver-wrench service-icon"></i>
+          <h3 class="pop-out" style="font-size: 22px; margin-bottom: 15px;" data-i18n="serv5_title">Website Maintenance</h3>
+          <p class="pop-out" style="color: var(--text-muted);" data-i18n="serv5_desc">Continuous updates, security checks, and performance optimization.</p>
         </div>
       </div>
     </div>
@@ -277,7 +354,36 @@
     </div>
   </section>
 
-  <section id="portfolio">
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-down"><span data-i18n="exp_title">My</span> <span data-i18n="exp_subtitle">Journey</span></h2>
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="glass-card timeline-content" data-tilt data-tilt-max="10">
+            <h3 class="pop-out" style="font-size: 20px; color: var(--accent-color);" data-i18n="exp1_role">Senior Web Developer</h3>
+            <p class="pop-out" style="font-size: 14px; font-weight: bold; margin-bottom: 10px;" data-i18n="exp1_company">Freelance | 2024 - Present</p>
+            <p class="pop-out" style="color: var(--text-muted); font-size: 14px;" data-i18n="exp1_desc">Designing 3D interactive web applications and premium portfolios for global clients.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="glass-card timeline-content" data-tilt data-tilt-max="10">
+            <h3 class="pop-out" style="font-size: 20px; color: var(--accent-color);" data-i18n="exp2_role">UI/UX Designer</h3>
+            <p class="pop-out" style="font-size: 14px; font-weight: bold; margin-bottom: 10px;" data-i18n="exp2_company">Tech Agency | 2022 - 2024</p>
+            <p class="pop-out" style="color: var(--text-muted); font-size: 14px;" data-i18n="exp2_desc">Led the frontend design team, focusing on responsive design and glassmorphism UI.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="glass-card timeline-content" data-tilt data-tilt-max="10">
+            <h3 class="pop-out" style="font-size: 20px; color: var(--accent-color);" data-i18n="exp3_role">Computer Science</h3>
+            <p class="pop-out" style="font-size: 14px; font-weight: bold; margin-bottom: 10px;" data-i18n="exp3_company">University | 2019 - 2022</p>
+            <p class="pop-out" style="color: var(--text-muted); font-size: 14px;" data-i18n="exp3_desc">Graduated with honors. Specialized in modern web technologies and software engineering.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" style="background: rgba(0,0,0,0.3);">
     <div class="container">
       <h2 class="section-title" data-aos="fade-down"><span data-i18n="port_title">My</span> <span data-i18n="port_subtitle">3D Work</span></h2>
       <div class="portfolio-grid">
@@ -285,25 +391,75 @@
           <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80');"></div>
           <div class="portfolio-info">
             <h3 class="pop-out" data-i18n="port1_title">Data Dashboard</h3>
-            <p class="pop-out" style="font-size: 13px; color: #ccc; margin-bottom: 15px;" data-i18n="port1_desc">Advanced analytics UI with dark mode.</p>
-            <a href="dashboard.html" target="_blank" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px;" data-i18n="btn_demo">Live Demo</a>
+            <p class="pop-out" style="font-size: 13px; color: #ccc; margin-bottom: 10px;" data-i18n="port1_desc">Advanced analytics UI with dark mode.</p>
+            <div class="pop-out" style="margin-bottom: 15px;">
+              <span class="lang-badge" style="font-size: 10px; padding: 2px 8px;">HTML5</span>
+              <span class="lang-badge" style="font-size: 10px; padding: 2px 8px;">CSS3</span>
+              <span class="lang-badge" style="font-size: 10px; padding: 2px 8px;">Chart.js</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <a href="dashboard.html" target="_blank" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px; flex: 1; text-align: center;" data-i18n="btn_demo">Live Demo</a>
+              <a href="https://github.com" target="_blank" class="btn-secondary pop-out" style="padding: 8px 15px; font-size: 12px; flex: 1; text-align: center;"><i class="fa-brands fa-github"></i> Code</a>
+            </div>
           </div>
         </div>
         <div class="glass-card portfolio-card" data-tilt data-tilt-max="15" data-aos="fade-up" data-aos-delay="200">
           <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80');"></div>
           <div class="portfolio-info">
             <h3 class="pop-out" data-i18n="port2_title">E-Commerce Store</h3>
-            <p class="pop-out" style="font-size: 13px; color: #ccc; margin-bottom: 15px;" data-i18n="port2_desc">Fast shopping experience with 3D elements.</p>
-            <a href="ecommerce.html" target="_blank" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px;" data-i18n="btn_demo">Live Demo</a>
+            <p class="pop-out" style="font-size: 13px; color: #ccc; margin-bottom: 10px;" data-i18n="port2_desc">Fast shopping experience with 3D elements.</p>
+            <div class="pop-out" style="margin-bottom: 15px;">
+              <span class="lang-badge" style="font-size: 10px; padding: 2px 8px;">React</span>
+              <span class="lang-badge" style="font-size: 10px; padding: 2px 8px;">Tailwind</span>
+              <span class="lang-badge" style="font-size: 10px; padding: 2px 8px;">Node.js</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <a href="ecommerce.html" target="_blank" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px; flex: 1; text-align: center;" data-i18n="btn_demo">Live Demo</a>
+              <a href="https://github.com" target="_blank" class="btn-secondary pop-out" style="padding: 8px 15px; font-size: 12px; flex: 1; text-align: center;"><i class="fa-brands fa-github"></i> Code</a>
+            </div>
           </div>
         </div>
         <div class="glass-card portfolio-card" data-tilt data-tilt-max="15" data-aos="fade-up" data-aos-delay="300">
           <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=600&q=80');"></div>
           <div class="portfolio-info">
             <h3 class="pop-out" data-i18n="port3_title">Agency Landing</h3>
-            <p class="pop-out" style="font-size: 13px; color: #ccc; margin-bottom: 15px;" data-i18n="port3_desc">Creative digital agency portfolio.</p>
-            <a href="agency.html" target="_blank" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px;" data-i18n="btn_demo">Live Demo</a>
+            <p class="pop-out" style="font-size: 13px; color: #ccc; margin-bottom: 10px;" data-i18n="port3_desc">Creative digital agency portfolio.</p>
+            <div class="pop-out" style="margin-bottom: 15px;">
+              <span class="lang-badge" style="font-size: 10px; padding: 2px 8px;">Vanilla JS</span>
+              <span class="lang-badge" style="font-size: 10px; padding: 2px 8px;">CSS 3D</span>
+              <span class="lang-badge" style="font-size: 10px; padding: 2px 8px;">AOS</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <a href="agency.html" target="_blank" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px; flex: 1; text-align: center;" data-i18n="btn_demo">Live Demo</a>
+              <a href="https://github.com" target="_blank" class="btn-secondary pop-out" style="padding: 8px 15px; font-size: 12px; flex: 1; text-align: center;"><i class="fa-brands fa-github"></i> Code</a>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-down"><span data-i18n="test_title">Client</span> <span data-i18n="test_subtitle">Reviews</span></h2>
+      <div class="services-grid">
+        <div class="glass-card testimonial-card" data-tilt data-tilt-max="15" data-aos="zoom-in" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="Client" class="client-avatar pop-out" loading="lazy">
+          <p class="pop-out" style="color: var(--text-muted); font-style: italic; margin-bottom: 15px;" data-i18n="test1_desc">"PixelCraft transformed our business. The 3D website they built is incredibly fast and absolutely beautiful."</p>
+          <h4 class="pop-out" style="color: var(--accent-color); font-weight: bold;" data-i18n="test1_name">Mark Johnson</h4>
+          <span style="font-size: 12px; color: #777;" data-i18n="test1_role">CEO, TechStart</span>
+        </div>
+        <div class="glass-card testimonial-card" data-tilt data-tilt-max="15" data-aos="zoom-in" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Client" class="client-avatar pop-out" loading="lazy">
+          <p class="pop-out" style="color: var(--text-muted); font-style: italic; margin-bottom: 15px;" data-i18n="test2_desc">"Dnyaneshwar is a genius web designer. He perfectly captured our vision with stunning animations."</p>
+          <h4 class="pop-out" style="color: var(--accent-color); font-weight: bold;" data-i18n="test2_name">Sarah Williams</h4>
+          <span style="font-size: 12px; color: #777;" data-i18n="test2_role">Founder, CreativeSpace</span>
+        </div>
+        <div class="glass-card testimonial-card" data-tilt data-tilt-max="15" data-aos="zoom-in" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Client" class="client-avatar pop-out" loading="lazy">
+          <p class="pop-out" style="color: var(--text-muted); font-style: italic; margin-bottom: 15px;" data-i18n="test3_desc">"The best portfolio template I've ever seen. Clean code, gorgeous dark mode, and 100% responsive."</p>
+          <h4 class="pop-out" style="color: var(--accent-color); font-weight: bold;" data-i18n="test3_name">David Chen</h4>
+          <span style="font-size: 12px; color: #777;" data-i18n="test3_role">Freelancer</span>
         </div>
       </div>
     </div>
@@ -346,16 +502,19 @@
               </div>
             </div>
           </div>
+          
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120935.91896894086!2d74.630006!3d18.618683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc3585090b84fdb%3A0xb2490ccdc1bc40c6!2sShrigonda%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="200" style="border:0; border-radius: 10px; margin-top: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         
         <div class="glass-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.2" data-aos="fade-left">
           
-          <div data-fs-success style="display:none; color: #25D366; margin-bottom: 15px; font-weight: bold; text-align: center;">Message Sent Successfully!</div>
-          <div data-fs-error style="display:none; color: #FF4A4A; margin-bottom: 15px; font-weight: bold; text-align: center;">Error sending message.</div>
+          <div data-fs-success style="display:none; color: #25D366; margin-bottom: 15px; font-weight: bold; text-align: center;" data-i18n="form_success">Message Sent Successfully!</div>
+          <div data-fs-error style="display:none; color: #FF4A4A; margin-bottom: 15px; font-weight: bold; text-align: center;" data-i18n="form_error">Error sending message.</div>
           
           <form id="contact-form" action="https://formspree.io/f/xkodogkr" method="POST">
             <div class="form-group"><input type="text" name="name" placeholder="Full Name" required class="pop-out" id="form_name" data-fs-field></div>
             <div class="form-group"><input type="email" name="email" placeholder="Email Address" required class="pop-out" id="form_email" data-fs-field><span data-fs-error="email" style="color: #FF4A4A; font-size: 12px; display: block; margin-top: -15px; margin-bottom: 10px;"></span></div>
+            <div class="form-group"><input type="text" name="subject" placeholder="Subject" class="pop-out" id="form_subject" data-fs-field></div>
             <div class="form-group"><textarea name="message" rows="4" placeholder="Your Project Vision..." required class="pop-out" id="form_msg" data-fs-field></textarea><span data-fs-error="message" style="color: #FF4A4A; font-size: 12px; display: block; margin-top: -15px; margin-bottom: 10px;"></span></div>
             <button type="submit" class="btn-primary pop-out" style="width: 100%;" data-fs-submit-btn><span data-i18n="btn_submit">Initialize Link</span> <i class="fa-solid fa-paper-plane" style="margin-left: 10px;"></i></button>
           </form>
@@ -392,6 +551,7 @@
     </div>
   </footer>
 
+  <button id="backToTop" class="btn-primary" style="position: fixed; bottom: 30px; left: 30px; border-radius: 50%; width: 50px; height: 50px; padding: 0; display: none; z-index: 1000; cursor: none;"><i class="fa-solid fa-arrow-up"></i></button>
   <a href="https://wa.me/917507093235" class="floating-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -401,9 +561,29 @@
     // Initialize AOS Animations
     AOS.init({ once: true });
 
-    // Preloader
+    // Preloader with Percentage
+    const preloader = document.getElementById("preloader");
+    const percEl = document.getElementById("loading-perc");
+    let loadProgress = 0;
+    
+    const loadInterval = setInterval(() => {
+      loadProgress += Math.floor(Math.random() * 10) + 5;
+      if(loadProgress >= 100) {
+        loadProgress = 100;
+        clearInterval(loadInterval);
+      }
+      if(percEl) percEl.innerText = loadProgress + "%";
+    }, 50);
+
     window.addEventListener("load", () => {
-      setTimeout(() => { document.getElementById("preloader").style.display = "none"; }, 800);
+      clearInterval(loadInterval);
+      if(percEl) percEl.innerText = "100%";
+      setTimeout(() => { 
+        if(preloader) {
+          preloader.style.opacity = "0";
+          setTimeout(() => { preloader.style.display = "none"; }, 500);
+        }
+      }, 400);
     });
 
     // Mobile Menu
@@ -458,8 +638,6 @@
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
         if (dict[key]) {
-          // If the element has embedded html like a span with a class, we need innerHTML. But for safety textContent is better.
-          // Since our HTML uses spans perfectly, textContent is fine.
           if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
             el.placeholder = dict[key];
           } else {
@@ -468,22 +646,158 @@
         }
       });
       
-      // Update placeholders for inputs
-      document.getElementById("form_name").placeholder = dict["form_name"];
-      document.getElementById("form_email").placeholder = dict["form_email"];
-      document.getElementById("form_msg").placeholder = dict["form_msg"];
+      // Update placeholders for inputs explicitly just in case
+      if (document.getElementById("form_name")) document.getElementById("form_name").placeholder = dict["form_name"] || "Full Name";
+      if (document.getElementById("form_email")) document.getElementById("form_email").placeholder = dict["form_email"] || "Email Address";
+      if (document.getElementById("form_msg")) document.getElementById("form_msg").placeholder = dict["form_msg"] || "Your Project Vision...";
 
       // Reset typing effect
       clearTimeout(typeTimerId);
       typeCount = 0;
       typeIndex = 0;
-      document.getElementById('typewriter').textContent = "";
-      typeEffect();
+      if (document.getElementById('typewriter')) {
+        document.getElementById('typewriter').textContent = "";
+        typeEffect();
+      }
     }
 
-    langSwitcher.addEventListener("change", (e) => {
-      updateLanguage(e.target.value);
+    if (langSwitcher) {
+      langSwitcher.addEventListener("change", (e) => {
+        updateLanguage(e.target.value);
+      });
+    }
+
+    // Scroll Progress
+    window.addEventListener("scroll", () => {
+      const scrollPx = document.documentElement.scrollTop;
+      const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollLen = `${(scrollPx / winHeightPx) * 100}%`;
+      const progressEl = document.getElementById("scroll-progress");
+      if (progressEl) progressEl.style.width = scrollLen;
     });
+
+    // Statistics Counter Animation
+    const stats = document.querySelectorAll('.stat-number');
+    let startedStats = false;
+    window.addEventListener('scroll', () => {
+      const statsSection = document.getElementById('stats');
+      if (statsSection && !startedStats) {
+        if (window.scrollY + window.innerHeight > statsSection.offsetTop) {
+          startedStats = true;
+          stats.forEach(stat => {
+            const target = +stat.getAttribute('data-target');
+            const increment = target / 50;
+            let current = 0;
+            const updateCounter = () => {
+              current += increment;
+              if (current < target) {
+                stat.innerText = Math.ceil(current);
+                setTimeout(updateCounter, 30);
+              } else {
+                stat.innerText = target + (target < 50 ? '+' : '');
+              }
+            };
+            updateCounter();
+          });
+        }
+      }
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Particle Animation for Hero Section
+    const canvas = document.getElementById('particles-canvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let particlesArray;
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      class Particle {
+        constructor(x, y, directionX, directionY, size, color) {
+          this.x = x;
+          this.y = y;
+          this.directionX = directionX;
+          this.directionY = directionY;
+          this.size = size;
+          this.color = color;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+        update() {
+          if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+          if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+          this.x += this.directionX;
+          this.y += this.directionY;
+          this.draw();
+        }
+      }
+
+      function initParticles() {
+        particlesArray = [];
+        let numberOfParticles = (canvas.height * canvas.width) / 9000;
+        for (let i = 0; i < numberOfParticles; i++) {
+          let size = (Math.random() * 3) + 1;
+          let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+          let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+          let directionX = (Math.random() * 1) - 0.5;
+          let directionY = (Math.random() * 1) - 0.5;
+          let color = Math.random() > 0.5 ? '#2E8B57' : '#81C784';
+          particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+        }
+      }
+
+      function animateParticles() {
+        requestAnimationFrame(animateParticles);
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        for (let i = 0; i < particlesArray.length; i++) {
+          particlesArray[i].update();
+        }
+      }
+
+      initParticles();
+      animateParticles();
+
+      window.addEventListener('resize', () => {
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+        initParticles();
+      });
+    }
+
+    // Custom Cursor (hide on mobile)
+    if (window.innerWidth > 768) {
+      const cursor = document.getElementById('custom-cursor');
+      if (cursor) {
+        document.addEventListener('mousemove', e => {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button, select, input, textarea, .glass-card, .timeline-item').forEach(el => {
+          el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+          el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+      }
+    } else {
+      const cursor = document.getElementById('custom-cursor');
+      if (cursor) cursor.style.display = 'none';
+    }
 
   </script>
   <script>

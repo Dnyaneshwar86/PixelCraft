@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dnyaneshwar86.github.io/PixelCraft/sitemap.xml
