@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Pixel Craft</title>
+  
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-color: #050810;
+      --card-bg: rgba(30, 41, 59, 0.4);
+      --accent-color: #00f2fe;
+      --accent-glow: rgba(0, 242, 254, 0.6);
+      --text-color: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body { 
+      background-color: var(--bg-color); 
+      color: var(--text-color); 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    /* 3D Floating Background Orbs */
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); z-index: -1; animation: float 10s infinite alternate ease-in-out; }
+    .orb-1 { width: 300px; height: 300px; background: #00f2fe; top: -50px; left: -50px; opacity: 0.3; }
+    .orb-2 { width: 400px; height: 400px; background: #4facfe; bottom: -100px; right: -100px; opacity: 0.2; animation-delay: -5s; }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, 30px) scale(1.1); }
+    }
+
+    /* 3D Glassmorphism Card */
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 60px 40px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+      transform-style: preserve-3d;
+    }
+    
+    .pop-out { transform: translateZ(50px); }
+
+    .error-code {
+      font-size: 120px;
+      font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--accent-color);
+      text-shadow: 0 0 20px var(--accent-glow);
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+
+    h2 { font-size: 30px; margin-bottom: 15px; }
+    p { color: var(--text-muted); margin-bottom: 30px; }
+
+    /* 3D Button */
+    .btn-primary { 
+      padding: 12px 30px; 
+      border-radius: 8px; 
+      font-weight: 600; 
+      transition: 0.3s; 
+      display: inline-block; 
+      text-decoration: none;
+      text-transform: uppercase; 
+      letter-spacing: 1px;
+      background: linear-gradient(45deg, #00f2fe, #4facfe); 
+      color: #000; 
+      border: none; 
+      box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 242, 254, 0.5); }
+
+  </style>
+</head>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+    <h1 class="error-code pop-out">404</h1>
+    <h2 class="pop-out">Oops! Page Not Found</h2>
+    <p class="pop-out">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+    <a href="index.html" class="btn-primary pop-out"><i class="fa-solid fa-house"></i> Go Back to Home</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+</body>
+</html>
