@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pixel Craft - 3D Web Design Agency</title>
+  <meta name="description" content="Pixel Craft - Professional 3D Web Design Agency by Dnyaneshwar Adagale. Custom web solutions, UI/UX, and Responsive Design.">
+  <meta name="keywords" content="Web Design, Dnyaneshwar Adagale, Shrigonda Web Developer, 3D Website, UI UX Designer, Marathi Web Designer">
   
-  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" type="image/x-icon">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/282/282806.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -284,7 +286,7 @@
           <div class="portfolio-info">
             <h3 class="pop-out" data-i18n="port1_title">Data Dashboard</h3>
             <p class="pop-out" style="font-size: 13px; color: #ccc; margin-bottom: 15px;" data-i18n="port1_desc">Advanced analytics UI with dark mode.</p>
-            <a href="#" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px;" data-i18n="btn_demo">Live Demo</a>
+            <a href="dashboard.html" target="_blank" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px;" data-i18n="btn_demo">Live Demo</a>
           </div>
         </div>
         <div class="glass-card portfolio-card" data-tilt data-tilt-max="15" data-aos="fade-up" data-aos-delay="200">
@@ -292,7 +294,7 @@
           <div class="portfolio-info">
             <h3 class="pop-out" data-i18n="port2_title">E-Commerce Store</h3>
             <p class="pop-out" style="font-size: 13px; color: #ccc; margin-bottom: 15px;" data-i18n="port2_desc">Fast shopping experience with 3D elements.</p>
-            <a href="#" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px;" data-i18n="btn_demo">Live Demo</a>
+            <a href="ecommerce.html" target="_blank" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px;" data-i18n="btn_demo">Live Demo</a>
           </div>
         </div>
         <div class="glass-card portfolio-card" data-tilt data-tilt-max="15" data-aos="fade-up" data-aos-delay="300">
@@ -300,7 +302,7 @@
           <div class="portfolio-info">
             <h3 class="pop-out" data-i18n="port3_title">Agency Landing</h3>
             <p class="pop-out" style="font-size: 13px; color: #ccc; margin-bottom: 15px;" data-i18n="port3_desc">Creative digital agency portfolio.</p>
-            <a href="#" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px;" data-i18n="btn_demo">Live Demo</a>
+            <a href="agency.html" target="_blank" class="btn-primary pop-out" style="padding: 8px 15px; font-size: 12px;" data-i18n="btn_demo">Live Demo</a>
           </div>
         </div>
       </div>
@@ -347,11 +349,15 @@
         </div>
         
         <div class="glass-card" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.2" data-aos="fade-left">
-          <form action="https://formspree.io/f/your_formspree_id" method="POST">
-            <div class="form-group"><input type="text" name="name" placeholder="Full Name" required class="pop-out" id="form_name"></div>
-            <div class="form-group"><input type="email" name="email" placeholder="Email Address" required class="pop-out" id="form_email"></div>
-            <div class="form-group"><textarea name="message" rows="4" placeholder="Your Project Vision..." required class="pop-out" id="form_msg"></textarea></div>
-            <button type="submit" class="btn-primary pop-out" style="width: 100%;"><span data-i18n="btn_submit">Initialize Link</span> <i class="fa-solid fa-paper-plane" style="margin-left: 10px;"></i></button>
+          
+          <div data-fs-success style="display:none; color: #25D366; margin-bottom: 15px; font-weight: bold; text-align: center;">Message Sent Successfully!</div>
+          <div data-fs-error style="display:none; color: #FF4A4A; margin-bottom: 15px; font-weight: bold; text-align: center;">Error sending message.</div>
+          
+          <form id="contact-form" action="https://formspree.io/f/xkodogkr" method="POST">
+            <div class="form-group"><input type="text" name="name" placeholder="Full Name" required class="pop-out" id="form_name" data-fs-field></div>
+            <div class="form-group"><input type="email" name="email" placeholder="Email Address" required class="pop-out" id="form_email" data-fs-field><span data-fs-error="email" style="color: #FF4A4A; font-size: 12px; display: block; margin-top: -15px; margin-bottom: 10px;"></span></div>
+            <div class="form-group"><textarea name="message" rows="4" placeholder="Your Project Vision..." required class="pop-out" id="form_msg" data-fs-field></textarea><span data-fs-error="message" style="color: #FF4A4A; font-size: 12px; display: block; margin-top: -15px; margin-bottom: 10px;"></span></div>
+            <button type="submit" class="btn-primary pop-out" style="width: 100%;" data-fs-submit-btn><span data-i18n="btn_submit">Initialize Link</span> <i class="fa-solid fa-paper-plane" style="margin-left: 10px;"></i></button>
           </form>
         </div>
       </div>
@@ -365,9 +371,9 @@
           <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 20px;"><i class="fa-solid fa-cube" style="color: var(--accent-color);"></i> Pixel<span style="color:var(--accent-color)">Craft</span></h3>
           <p style="color: var(--text-muted); margin-bottom: 20px;" data-i18n="footer_desc">Engineering the future of the web with 3D interactions and flawless code.</p>
           <div class="social-links">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-github"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/adagale2005" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
           </div>
         </div>
         <div class="footer-col">
@@ -480,5 +486,10 @@
     });
 
   </script>
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contact-form', formId: 'xkodogkr' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
